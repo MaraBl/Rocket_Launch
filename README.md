@@ -1,3 +1,9 @@
+Project "Rocket Lanch" is based on my project in figma:
+https://www.figma.com/file/52jQfCEJnieaiSGhzxj1Be/Space-Rocket-Launches?node-id=0%3A1
+
+Use: https://api.spacexdata.com/v4/launches/next
+to dislay time to the next rocket launch
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
