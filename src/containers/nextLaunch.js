@@ -10,7 +10,7 @@ const NextLaunch = () => {
   let [isLoaded, setIsLoaded] = useState(false);
   let [err, setErr] = useState(null);
   let [isLaunched, setIsLaunched] = useState(false);
-  let [spaceshipName, setSpaceshipName] = useState("");
+  let [missionName, setMissionName] = useState("");
 
   useEffect(() => {
     const todayDateEpoxFormat = new Date().getTime();
@@ -24,10 +24,15 @@ const NextLaunch = () => {
         })
         .then(
           (launch) => {
-            let launchDateEpoxFormat = new Date(launch.date_local).getTime();
-            if (launchDateEpoxFormat >= todayDateEpoxFormat) {
-              setNextLaunchDate(launch.date_local);
-              setSpaceshipName(launch.name);
+            //Test when API returns next launch date correctly. Commnted out line 30 and uncomment line 29. Refresh page
+            //let nextLaunchDate = "2022-11-30T15:48:40.000Z";
+            let nextLaunchDate = launch.date_local;
+            let nextLaunchDateEpoxFormat = new Date(nextLaunchDate).getTime();
+            let nextLaunchMissionName = launch.name;
+
+            if (nextLaunchDateEpoxFormat >= todayDateEpoxFormat) {
+              setNextLaunchDate(nextLaunchDate);
+              setMissionName(nextLaunchMissionName);
               setIsLoaded(true);
             } else {
               setIsLaunched(true);
@@ -66,7 +71,7 @@ const NextLaunch = () => {
   } else {
     return (
       <div className="nextLaunch">
-        <p className="p-4 bg-white">Spaceship: {spaceshipName}</p>
+        <p className="p-4 bg-white">Mission: {missionName}</p>
         <Timer targetDate={targetDate} />
       </div>
     );
