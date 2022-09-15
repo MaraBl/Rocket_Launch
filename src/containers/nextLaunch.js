@@ -24,7 +24,7 @@ const NextLaunch = () => {
         })
         .then(
           (launch) => {
-            //Test when API returns next launch date correctly. Commnted out line 30 and uncomment line 29. Refresh page
+            //Test when API returns next launch date correctly. Commnted out line 29 and uncomment line 28. Refresh page
             //let nextLaunchDate = "2022-11-30T15:48:40.000Z";
             let nextLaunchDate = launch.date_local;
             let nextLaunchDateEpoxFormat = new Date(nextLaunchDate).getTime();
